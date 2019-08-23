@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,8 +21,8 @@ public class HMDictionaryController {
 	@Autowired
 	Trie trie;
 	
-	@PostMapping(path="/upload/{file}")
-	public boolean upload(@PathVariable("file") MultipartFile file) {
+	@PostMapping(path="/upload")
+	public boolean upload(@RequestParam MultipartFile file) {
 
 		return fileUtil.readAndStoreFile(file,trie);
 		
