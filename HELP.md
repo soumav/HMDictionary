@@ -1,13 +1,15 @@
 # Getting Started
 
-### Reference Documentation
-For further reference, please consider the following sections:
+This API exposes 2 services :
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Web Services](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-webservices)
+	(1) File Upload (in .txt formats) - This API parse the file and stores each space-separated word in the uploaded file in memory. 
+	(2) Word Search - Searches for the given word. 
+	(Note: As the words are stored in memory and not a specific DB, hence this works with each file upload per session i.e. once a new file is uploaded, the old file contents gets overwritten in memory and word is searched from the latest uploaded file. Once the server is restarted, all words/data is lost.)
 
-### Guides
-The following guides illustrate how to use some features concretely:
+Base URL : http://localhost:8080/hmdictionary/
 
-* [Producing a SOAP web service](https://spring.io/guides/gs/producing-web-service/)
-
+Services : 
+	
+	a) file upload - localhost:8080/hmdictionary/upload
+		(file format for this is .txt)
+	b) search - localhost:8080/hmdictionary/search/<WordToSearch>
