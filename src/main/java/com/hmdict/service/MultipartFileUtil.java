@@ -23,7 +23,7 @@ public class MultipartFileUtil {
 			while ((line = br.readLine()) != null) {
 				String wordsInLine[]=line.split(" ");
 				for(String word: wordsInLine)
-				trie.insert(word);
+					trie.insert(word);
 			}
 
 		} catch (IOException e) {
